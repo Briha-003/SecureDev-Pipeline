@@ -78,8 +78,8 @@ pipeline {
 
     post {
         always {
-            junit 'reports/**/*.xml'  // Adjust according to your test reports location
-            cleanWs()
+            node {
+                junit 'reports/**/*.xml'  // Adjust according to your test reports location
         }
         failure {
             mail to: 'your-email@example.com',
